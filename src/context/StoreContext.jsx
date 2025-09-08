@@ -12,6 +12,4 @@ export function StoreProvider({ children }) {
   );
 }
 
-export default function useGlobalReducer() {
-  return useContext(StoreContext);
-}
+export const useGlobalReducer = () => useContext(StoreContext);

@@ -3,14 +3,18 @@ import Navbar from "./Navbar";
 import Characters from "./Characters";
 import Planets from "./Planets";
 import Vehicles from "./Vehicles";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
 
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <Characters></Characters>
-      <Planets></Planets>
-      <Vehicles></Vehicles>
+      <BrowserRouter>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
