@@ -4,7 +4,7 @@ import Vehicles from "./Vehicles";
 
 import { useEffect } from "react";
 
-import { getCharacters } from "../services/api";
+import { getCharacters, getPlanets, getVehicles } from "../services/api";
 import { useGlobalReducer } from "../context/StoreContext";
 
 const Home = () => {
@@ -13,9 +13,19 @@ const Home = () => {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const data = await getCharacters();
-        if (!data.error) {
-          dispatch({ type: "GET_CHARACTERS", payload: data.results });
+        const [characterData, planetData, vehicleData] = await Promise.all([
+          getCharacters(),
+          getPlanets(),
+          getVehicles(),
+        ]);
+        if (!characterData.error) {
+          dispatch({ type: "GET_CHARACTERS", payload: characterData.results });
+        }
+        if (!planetData.error) {
+          dispatch({ type: "GET_PLANETS", payload: planetData.results });
+        }
+        if (!vehicleData.error) {
+          dispatch({ type: "GET_VEHICLES", payload: vehicleData.results });
         }
       } catch (err) {
         console.error(err);
