@@ -1,5 +1,7 @@
 import { useGlobalReducer } from "../context/StoreContext";
 import "./CardStyle.css";
+import ImagesCards from "./ImagesCards";
+
 const Planets = () => {
   const { state } = useGlobalReducer();
 
@@ -10,13 +12,12 @@ const Planets = () => {
           <div className="col-12 mb-5">
             <h2 className="text-start">Planets</h2>
             <div className="wrapper d-flex mt-3">
-              {state.planets.map((planet) => (
+              {state.planets?.map((planet) => (
                 <div className="card planet-card text-start" key={planet.uid}>
-                  <img src="..." className="card-img-top" alt="..." />
+                  <ImagesCards uid={planet.uid} type="planets"></ImagesCards>
+                  <h5 className="card-title">{planet.name}</h5>
                   <div className="card-body">
-                    <h5 className="card-title">{planet.properties.name}</h5>
-
-                    <div className="hide-text">
+                    {/* <div className="hide-text">
                       <p className="card-text">
                         Climate: {planet.properties.climate}
                       </p>
@@ -55,7 +56,7 @@ const Planets = () => {
                         Surface Water: {planet.properties.surface_water}
                       </p>
                       <p className="card-text">URL: {planet.properties.url}</p>
-                    </div>
+                    </div> */}
 
                     <a href="#" className="btn btn-primary mt-2">
                       Learn more!

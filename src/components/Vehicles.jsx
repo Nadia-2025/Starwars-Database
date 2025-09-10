@@ -1,5 +1,6 @@
 import { useGlobalReducer } from "../context/StoreContext";
 import "./CardStyle.css";
+import ImagesCards from "./ImagesCards";
 const Vehicles = () => {
   const { state } = useGlobalReducer();
 
@@ -10,12 +11,13 @@ const Vehicles = () => {
           <div className="col-12 mb-5">
             <h2 className="text-start">Vehicles</h2>
             <div className="wrapper d-flex mt-3">
-              {state.vehicles.map((vehicle) => (
+              {state.vehicles?.map((vehicle) => (
                 <div className="card vehicle-card text-start" key={vehicle.uid}>
-                  <img src="..." className="card-img-top" alt="..." />
+                  <ImagesCards uid={vehicle.uid} type="vehicles"></ImagesCards>
                   <div className="card-body">
-                    <h5 className="card-title">{vehicle.properties.name}</h5>
+                    <h5 className="card-title">{vehicle.name}</h5>
 
+                    {/* 
                     <div className="hide-text">
                       <p className="card-text">
                         Model: {vehicle.properties.model}
@@ -63,7 +65,7 @@ const Vehicles = () => {
                       <p className="card-text">
                         Vehicle Class: {vehicle.properties.vehicle_class}
                       </p>
-                    </div>
+                    </div> */}
 
                     <a href="#" className="btn btn-primary mt-2">
                       Learn more!

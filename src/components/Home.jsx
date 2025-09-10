@@ -19,13 +19,13 @@ const Home = () => {
           getVehicles(),
         ]);
         if (!characterData.error) {
-          dispatch({ type: "GET_CHARACTERS", payload: characterData.results });
+          dispatch({ type: "GET_CHARACTERS", payload: characterData });
         }
         if (!planetData.error) {
-          dispatch({ type: "GET_PLANETS", payload: planetData.results });
+          dispatch({ type: "GET_PLANETS", payload: planetData });
         }
         if (!vehicleData.error) {
-          dispatch({ type: "GET_VEHICLES", payload: vehicleData.results });
+          dispatch({ type: "GET_VEHICLES", payload: vehicleData });
         }
       } catch (err) {
         console.error(err);

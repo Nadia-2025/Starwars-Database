@@ -2,81 +2,42 @@ export const API_URL = "https://www.swapi.tech/api";
 
 export const getCharacters = async () => {
   const response = await fetch(`${API_URL}/people/`);
-  if (response.ok) {
-    const data = await response.json();
-    const results = data.results;
+  if (!response.ok) throw new Error("Error fetching characters");
+  const data = await response.json();
+  return data.results;
+};
 
-    const detailedCharacters = await Promise.all(
-      results.map(async (character) => {
-        const res = await fetch(character.url);
-
-        if (res.ok) {
-          const detailedData = await res.json();
-          return detailedData.result;
-        } else {
-          return { uid: character.uid, error: true };
-        }
-      })
-    );
-    return { results: detailedCharacters };
-  } else {
-    console.log("error: ", response.status, response.statusText);
-    return {
-      error: { status: response.status, statusText: response.statusText },
-    };
-  }
+export const getDetailedCharacter = async (uid) => {
+  const response = await fetch(`${API_URL}/people/${uid}`);
+  if (!response.ok) throw new Error("Error fetching character");
+  const data = await response.json();
+  return data.result;
 };
 
 export const getPlanets = async () => {
   const response = await fetch(`${API_URL}/planets/`);
-  if (response.ok) {
-    const data = await response.json();
-    const results = data.results;
+  if (!response.ok) throw new Error("Error fetching planets");
+  const data = await response.json();
+  return data.results;
+};
 
-    const detailedPlanets = await Promise.all(
-      results.map(async (planet) => {
-        const res = await fetch(planet.url);
-
-        if (res.ok) {
-          const detailedData = await res.json();
-          return detailedData.result;
-        } else {
-          return { uid: planet.uid, error: true };
-        }
-      })
-    );
-    return { results: detailedPlanets };
-  } else {
-    console.log("error: ", response.status, response.statusText);
-    return {
-      error: { status: response.status, statusText: response.statusText },
-    };
-  }
+export const getDetailedPlanet = async (uid) => {
+  const response = await fetch(`${API_URL}/planets/${uid}`);
+  if (!response.ok) throw new Error("Error fetching planet");
+  const data = await response.json();
+  return data.result;
 };
 
 export const getVehicles = async () => {
   const response = await fetch(`${API_URL}/vehicles/`);
-  if (response.ok) {
-    const data = await response.json();
-    const results = data.results;
+  if (!response.ok) throw new Error("Error fetching vehicles");
+  const data = await response.json();
+  return data.results;
+};
 
-    const detailedVehicles = await Promise.all(
-      results.map(async (vehicle) => {
-        const res = await fetch(vehicle.url);
-
-        if (res.ok) {
-          const detailedData = await res.json();
-          return detailedData.result;
-        } else {
-          return { uid: vehicle.uid, error: true };
-        }
-      })
-    );
-    return { results: detailedVehicles };
-  } else {
-    console.log("error: ", response.status, response.statusText);
-    return {
-      error: { status: response.status, statusText: response.statusText },
-    };
-  }
+export const getDetailedVehicle = async (uid) => {
+  const response = await fetch(`${API_URL}/vehicles/${uid}`);
+  if (!response.ok) throw new Error("Error fetching vehicle");
+  const data = await response.json();
+  return data.result;
 };
