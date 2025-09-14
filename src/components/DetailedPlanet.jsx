@@ -27,40 +27,78 @@ const DetailedPlanet = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 mb-5">
-            <ImagesCards uid={planet.uid} type="planets"></ImagesCards>
-            <h5 className="card-title">{planet.properties.name}</h5>
+            <div className="row header-card mt-4">
+              <div className="col-md-8 image">
+                <ImagesCards uid={planet.uid} type="planets"></ImagesCards>
+              </div>
+              <div className="col-md-4 description ">
+                <h5 className="card-title">{planet.properties.name}</h5>
+                <p className="text-start">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
 
             <div className="card-body">
-              <div className="">
-                <p className="card-text">
-                  Climate: {planet.properties.climate}
-                </p>
-                <p className="card-text">
-                  Terrain: {planet.properties.terrain}
-                </p>
-                <p className="card-text">
-                  Gravity: {planet.properties.gravity}
-                </p>
+              <div className="row text-start mt-5">
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Climate</span>
+                    <span>{planet.properties.climate}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold">Terrain</span>
+                    <span>{planet.properties.terrain}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold">Gravity</span>
+                    <span>{planet.properties.gravity}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold">Diameter</span>
+                    <span>{planet.properties.diameter}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Orbital Period</span>
+                    <span>{planet.properties.orbital_period}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Population</span>
+                    <span>{planet.properties.population}</span>
+                  </p>
+                </div>
 
-                <p className="card-text">
-                  Diameter: {planet.properties.diameter}
-                </p>
-
-                <p className="card-text">
-                  Orbital Period: {planet.properties.orbital_period}
-                </p>
-                <p className="card-text">
-                  Population: {planet.properties.population}
-                </p>
-                <p className="card-text">
-                  Residents: {planet.properties.residents}
-                </p>
-                <p className="card-text">
-                  Rotation Period : {planet.properties.rotation_period}
-                </p>
-                <p className="card-text">
-                  Surface Water: {planet.properties.surface_water}
-                </p>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Rotation Period</span>
+                    <span>{planet.properties.rotation_period}</span>
+                  </p>
+                </div>
+                <div className="col  ">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Surface Water</span>
+                    <span>{planet.properties.surface_water}</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
