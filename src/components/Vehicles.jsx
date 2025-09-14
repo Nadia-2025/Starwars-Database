@@ -1,5 +1,4 @@
 import { useGlobalReducer } from "../context/StoreContext";
-import "./CardStyle.css";
 import ImagesCards from "./ImagesCards";
 import { Link } from "react-router-dom";
 
@@ -10,21 +9,34 @@ const Vehicles = () => {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 mb-5">
-            <h2 className="text-start">Vehicles</h2>
-            <div className="wrapper d-flex mt-3">
+          <div className="col-12 m-5">
+            <h4 className="text-start">Databank | Vehicles</h4>
+            <div className="main-card-wrapper d-flex mt-3">
               {state.vehicles?.map((vehicle) => (
-                <div className="card vehicle-card text-start" key={vehicle.uid}>
-                  <ImagesCards uid={vehicle.uid} type="vehicles"></ImagesCards>
-                  <div className="card-body">
-                    <h5 className="card-title">{vehicle.name}</h5>
+                <div
+                  className="card  border border-danger vehicle-card text-start"
+                  key={vehicle.uid}
+                >
+                  <div className="main-card-image">
+                    <ImagesCards
+                      uid={vehicle.uid}
+                      type="vehicles"
+                    ></ImagesCards>
+                  </div>
 
-                    <Link
-                      to={`/vehicle/${vehicle.uid}`}
-                      className="btn btn-primary mt-2"
-                    >
-                      Learn more!
-                    </Link>
+                  <div className="card-body">
+                    <h5 className="card-title p-3">{vehicle.name}</h5>
+                    <div className=" d-flex justify-content-between">
+                      <Link
+                        to={`/vehicle/${vehicle.uid}`}
+                        className="btn btn-dark mt-2"
+                      >
+                        Learn more!
+                      </Link>
+                      <button className="btn btn-danger">
+                        <i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

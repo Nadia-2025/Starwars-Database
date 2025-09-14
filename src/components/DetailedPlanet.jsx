@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import ImagesCards from "./ImagesCards";
 import { useEffect, useState } from "react";
 import { getDetailedPlanet } from "../services/api";
+import "./App.css";
 
 const DetailedPlanet = () => {
   const { id } = useParams();
@@ -28,10 +29,10 @@ const DetailedPlanet = () => {
         <div className="row">
           <div className="col-12 mb-5">
             <div className="row header-card mt-4">
-              <div className="col-md-8 image">
+              <div className="col-md-8  detailed-card-image border border-danger">
                 <ImagesCards uid={planet.uid} type="planets"></ImagesCards>
               </div>
-              <div className="col-md-4 description ">
+              <div className="col-md-4  ">
                 <h5 className="card-title">{planet.properties.name}</h5>
                 <p className="text-start">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -40,10 +41,7 @@ const DetailedPlanet = () => {
                   printer took a galley of type and scrambled it to make a type
                   specimen book. It has survived not only five centuries, but
                   also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  essentially unchanged.
                 </p>
               </div>
             </div>

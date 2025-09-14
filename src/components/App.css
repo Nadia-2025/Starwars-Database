@@ -2,10 +2,80 @@
 
 #root {
   font-family: "Open Sans", sans-serif;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
   background-color: black;
   color: white;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* evita scroll horizontal global */
+}
+
+.navbar {
+  background-color: black !important;
+  color: white !important;
+}
+.card {
+  background-color: black !important;
+}
+
+.main-card-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  max-width: 100%;
+  height: 520px;
+  padding-bottom: 3pxs;
+}
+.main-card-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.main-card-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.vehicle-card,
+.character-card,
+.planet-card {
+  flex: 0 0 calc(25% - 1rem);
+  scroll-snap-align: start;
+  min-width: 250px;
+  max-width: 300px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+.character-card .main-card-image,
+.planet-card .main-card-image,
+.vehicle-card .main-card-image {
+  height: 80%;
+  overflow: hidden;
+}
+.character-card .main-card-image img,
+.planet-card .main-card-image img,
+.vehicle-card .main-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+}
+.character-card .card-body,
+.planet-card .card-body,
+.vehicle-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
