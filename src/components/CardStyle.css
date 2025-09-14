@@ -14,11 +14,3 @@
   min-width: 250px;
   max-width: 300px;
 }
-
-.hide-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  max-height: 8rem;
-}

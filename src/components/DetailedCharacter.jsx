@@ -27,43 +27,75 @@ const DetailedCharacter = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 mb-5">
-            <ImagesCards uid={character.uid} type="characters"></ImagesCards>
-            <h5 className="card-title">{character.properties.name}</h5>
+            <div className="row header-card mt-4">
+              <div className="col-md-8 image">
+                <ImagesCards
+                  uid={character.uid}
+                  type="characters"
+                ></ImagesCards>
+              </div>
+
+              <div className="col-md-4 description ">
+                <h5 className="card-title">{character.properties.name}</h5>
+                <p className="text-start">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
 
             <div className="card-body">
-              <div className="">
-                <p className="card-text">
-                  Birth-year: {character.properties.birth_year}
-                </p>
-                <p className="card-text">
-                  Eye-color: {character.properties.eye_color}
-                </p>
-                <p className="card-text">
-                  Gender: {character.properties.gender}
-                </p>
-
-                <p className="card-text">
-                  Hair-color: {character.properties.hair_color}
-                </p>
-                <p className="card-text">
-                  Height: {character.properties.height}
-                </p>
-                <p className="card-text">
-                  Homeworld: {character.properties.homeworld}
-                </p>
-                <p className="card-text">Mass: {character.properties.mass}</p>
-                <p className="card-text">
-                  Skin color: {character.properties.skin_color}
-                </p>
-                <p className="card-text">
-                  Created: {character.properties.created}
-                </p>
-                <p className="card-text">
-                  Edited: {character.properties.edited}
-                </p>
-                <p className="card-text">
-                  Species: {character.properties.species}
-                </p>
+              <div className="row text-start mt-5">
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Birth-year</span>
+                    <span>{character.properties.birth_year}</span>
+                  </p>
+                </div>
+                <div className="col border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Eye Color</span>
+                    <span>Eye-color {character.properties.eye_color}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Hair Color</span>
+                    <span>{character.properties.hair_color}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Gender</span>
+                    <span>{character.properties.gender}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Height</span>
+                    <span>{character.properties.height}</span>
+                  </p>
+                </div>
+                <div className="col  border-end border-danger">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Mass</span>
+                    <span>{character.properties.mass}</span>
+                  </p>
+                </div>
+                <div className="col">
+                  <p className="card-text d-flex flex-column">
+                    <span className="fw-bold"> Skin Color</span>
+                    <span>{character.properties.skin_color}</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
