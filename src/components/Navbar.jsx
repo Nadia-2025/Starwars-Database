@@ -1,4 +1,5 @@
 import { useGlobalReducer } from "../context/StoreContext";
+import SearchBar from "./SearchBar";
 
 useGlobalReducer;
 const Navbar = () => {
@@ -120,22 +121,8 @@ const Navbar = () => {
                 </div>
               </div>
             </nav>
-            <div className="d-flex justify-content-center">
-              <form className="d-flex" role="search">
-                <input
-                  className="form-control  me-2 flex-grow-1"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button
-                  className="btn btn-outline-light me-2 d-flex align-items-center"
-                  type="submit"
-                >
-                  <i className="fa-solid fa-magnifying-glass me-3"></i>
-                  SEARCH
-                </button>
-              </form>
+            <div className="d-flex justify-content-center align-items-center">
+              <SearchBar />
             </div>
           </div>
         </div>
