@@ -3,13 +3,13 @@ import ImagesCards from "./ImagesCards";
 import { Link } from "react-router-dom";
 
 const Characters = () => {
-  const { state } = useGlobalReducer();
+  const { state, dispatch } = useGlobalReducer();
 
   return (
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 m-5">
+          <div className="col-12 mx-2 my-5">
             <h4 className="text-start">Databank | Characters</h4>
             <div className="main-card-wrapper d-flex mt-3">
               {state.characters?.map((character) => (
@@ -33,8 +33,20 @@ const Characters = () => {
                       >
                         Learn more!
                       </Link>
-                      <button className="btn btn-danger">
-                        <i class="fa-regular fa-heart"></i>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD_FAVORITE",
+                            payload: {
+                              uid: `${character.uid}-character`,
+                              name: character.name,
+                              type: "character",
+                            },
+                          })
+                        }
+                      >
+                        <i className="fa-regular fa-heart"></i>
                       </button>
                     </div>
                   </div>

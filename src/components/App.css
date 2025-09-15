@@ -13,7 +13,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* evita scroll horizontal global */
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -78,4 +78,25 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.detailed-card-image {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailed-card-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 2000;
 }

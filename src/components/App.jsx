@@ -1,8 +1,5 @@
 import "./App.css";
 import Navbar from "./Navbar";
-// import Characters from "./Characters";
-// import Planets from "./Planets";
-// import Vehicles from "./Vehicles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import DetailedCharacter from "./DetailedCharacter";

@@ -1,10 +1,14 @@
+import { useGlobalReducer } from "../context/StoreContext";
+
+useGlobalReducer;
 const Navbar = () => {
+  const { state, dispatch } = useGlobalReducer();
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ paddingTop: "120px" }}>
         <div className="row">
           <div className="col-12">
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
               <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                   <img
@@ -35,7 +39,11 @@ const Navbar = () => {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" aria-current="page" href="#">
+                      <a
+                        className="nav-link active"
+                        aria-current="page"
+                        href="#"
+                      >
                         DATABANK
                       </a>
                     </li>
@@ -62,15 +70,46 @@ const Navbar = () => {
                     </li>
                   </ul>
                   <form className="d-flex">
-                    <button
-                      className="btn btn-outline-light me-2"
-                      type="submit"
-                    >
-                      <span className="me-3">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                      </span>
-                      SEARCH
-                    </button>
+                    <div className="dropdown">
+                      <button
+                        className="btn btn-danger me-2  dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <span className="me-3">
+                          <i className="fa-regular fa-heart"></i>
+                        </span>
+                        FAVORITES ({state.favorites.length})
+                      </button>
+                      <ul className="dropdown-menu dropdown-menu-end">
+                        {state.favorites.length === 0 ? (
+                          <li className="dropdown-item text-muted">
+                            No favorites
+                          </li>
+                        ) : (
+                          state.favorites.map((fav) => (
+                            <li
+                              key={fav.uid}
+                              className="dropdown-item d-flex justify-content-between align-items-center"
+                            >
+                              {fav.name}
+                              <button
+                                className="btn btn-sm btn-danger ms-2"
+                                onClick={() =>
+                                  dispatch({
+                                    type: "REMOVE_FAVORITE",
+                                    payload: fav.uid,
+                                  })
+                                }
+                              >
+                                <i className="fa-solid fa-trash"></i>
+                              </button>
+                            </li>
+                          ))
+                        )}
+                      </ul>
+                    </div>
+
                     <button className="btn btn-outline-light" type="submit">
                       <span className="me-3">
                         <i className="fa-regular fa-user"></i>
@@ -81,6 +120,23 @@ const Navbar = () => {
                 </div>
               </div>
             </nav>
+            <div className="d-flex justify-content-center">
+              <form className="d-flex" role="search">
+                <input
+                  className="form-control  me-2 flex-grow-1"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  className="btn btn-outline-light me-2 d-flex align-items-center"
+                  type="submit"
+                >
+                  <i className="fa-solid fa-magnifying-glass me-3"></i>
+                  SEARCH
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
